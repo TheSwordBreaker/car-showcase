@@ -78,7 +78,7 @@
 }
 
 .home__cars-wrapper {
-	@apply w-full grid pt-14 gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4;
+	@apply w-full grid pt-14 gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4;
 }
 
 .home__error-container {
@@ -88,7 +88,7 @@
 
 /* START: Car Card styles */
 .car-card {
-	@apply flex flex-col bg-primary-blue-100 rounded-3xl p-6 text-black-100 justify-center items-start hover:bg-white hover:shadow-md;
+	@apply flex flex-col bg-primary-blue-100 rounded-3xl max-w-[18rem] p-6 text-black-100 justify-center items-start hover:bg-blue-200/70 hover:shadow-md;
 }
 
 .car-card__content {
