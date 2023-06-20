@@ -1,27 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Manrope", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* START: General styles */
+.max-width {
+	@apply mx-auto max-w-[1440px];
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.padding-x {
+	@apply px-6 sm:px-16;
 }
+
+.padding-y {
+	@apply py-4;
+}
+
+.flex-center {
+	@apply flex items-center justify-center;
+}
+
+.flex-between {
+	@apply flex justify-between items-center;
+}
+
+.custom-btn {
+	@apply flex flex-row outline-none py-3 px-6 relative justify-center items-center;
+}
+/* END: General styles */
+
+/* START: Hero styles */
+.hero {
+	@apply flex flex-col mx-auto max-w-[1440px] z-0 gap-5 relative xl:flex-row;
+}
+
+.hero__title {
+	@apply font-extrabold text-[3.125rem] sm:text-[3.6rem] md:text-5xl 2xl:text-[5rem];
+}
+
+.hero__subtitle {
+	@apply font-light mt-5 text-2xl text-black-100;
+}
+
+.hero__image-container {
+	@apply flex w-full justify-end items-end xl:h-screen xl:flex-[1.5];
+}
+
+.hero__image {
+	@apply h-[590px] w-[90%] z-0 relative xl:h-full xl:w-full;
+}
+
+.hero__image-overlay {
+	@apply bg-hero-bg bg-repeat-round h-[590px] w-full -right-1/4 -z-10 absolute overflow-hidden xl:h-screen xl:-top-24 xl:-right-1/2;
+}
+/* END: Hero styles */
+
+/* START: Home styles */
+
+.home__text-container {
+	@apply flex flex-col text-black-100 gap-y-2.5 items-start justify-start;
+}
+
+.home__filters {
+	@apply flex-between flex-wrap mt-12 w-full gap-5 items-center;
+}
+
+.home__filter-container {
+	@apply flex flex-wrap gap-2 justify-start items-center;
+}
+
+.home__cars-wrapper {
+	@apply w-full grid pt-14 gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4;
+}
+
+.home__error-container {
+	@apply flex flex-col mt-16 gap-2 justify-center items-center;
+}
+/* END: Home styles */
+
+/* START: Car Card styles */
+.car-card {
+	@apply flex flex-col bg-primary-blue-100 rounded-3xl p-6 text-black-100 justify-center items-start hover:bg-white hover:shadow-md;
+}
+
+.car-card__content {
+	@apply flex w-full gap-2 justify-between items-start;
+}
+
+.car-card__content-title {
+	@apply font-bold text-[22px] leading-[26px] capitalize;
+}
+
+.car-card__price {
+	@apply flex font-extrabold mt-6 text-[32px] leading-[38px];
+}
+
+.car-card__price-dollar {
+	@apply font-semibold text-[14px] leading-[17px] self-start;
+}
+
+.car-card__price-day {
+	@apply font-medium text-[14px] leading-[17px] self-end;
+}
+
+.car-card__image {
+	@apply object-contain h-40 my-3 w-full relative;
+}
+
+.car-card__icon-container {
+	@apply flex text-grey w-full justify-between group-hover:invisible;
+}
+
+.car-card__icon {
+	@apply flex flex-col gap-2 justify-center items-center;
+}
+
+.car-card__icon-text {
+	@apply text-[14px] leading-[17px];
+}
+
+.car-card__btn-container {
+	@apply w-full bottom-0 z-10 hidden absolute group-hover:flex;
+}
+/* END: Car Card styles */
+
+/* START: Car Details styles */
+.car-details__dialog-panel {
+	@apply bg-white flex flex-col max-w-lg rounded-2xl shadow-xl text-left w-full max-h-[90vh] p-6 transform transition-all gap-5 relative overflow-y-auto;
+}
+
+.car-details__close-btn {
+	@apply rounded-full bg-primary-blue-100 w-fit p-2 top-2 right-2 z-10 absolute;
+}
+
+.car-details__main-image {
+	@apply bg-pattern bg-cover bg-center rounded-lg h-40 w-full relative;
+}
+/* END: Car Details styles */
+
+/* START: Custom Filter styles */
+.custom-filter__btn {
+	@apply bg-white border rounded-lg cursor-default flex shadow-md text-left w-full min-w-[127px] py-2 px-3 relative justify-between items-center sm:text-sm;
+}
+
+.custom-filter__options {
+	@apply bg-white rounded-md shadow-lg ring-black mt-1 text-base w-full max-h-60 py-1 ring-1 ring-opacity-5 absolute overflow-auto sm:text-sm focus:outline-none;
+}
+/* END: Custom Filter styles */
+
+/* START: Footer styles */
+.footer {
+	@apply border-t flex flex-col  border-gray-100 mt-5 text-black-100;
+}
+
+.footer__links-container {
+	@apply flex flex-wrap max-md:flex-col py-10 px-6 gap-5 justify-between sm:px-16;
+}
+
+.footer__rights {
+	@apply flex flex-col gap-6 justify-start items-start;
+}
+
+.footer__links {
+	@apply flex flex-wrap flex-1 w-full max-md:mt-10 gap-20 md:justify-end;
+}
+
+.footer__link {
+	@apply flex flex-col text-base min-w-[170px] gap-6;
+}
+
+.footer__copyrights {
+	@apply border-t flex flex-wrap border-gray-100 mt-10 py-10 px-6 justify-between items-center sm:px-16;
+}
+
+.footer__copyrights-link {
+	@apply flex flex-1 max-sm:mt-4 gap-10 justify-center sm:justify-end;
+}
+/* END: Footer styles */
+
+/* START: searchbar styles */
+.searchbar {
+	@apply flex max-sm:flex-col w-full max-sm:gap-4 max-w-3xl items-center justify-start relative;
+}
+
+.searchbar__item {
+	@apply flex max-sm:w-full flex-1 justify-start items-center relative;
+}
+
+.searchbar__input {
+	@apply bg-light-white rounded-r-full cursor-pointer max-sm:rounded-full outline-none h-[48px] text-sm w-full p-4 pl-12;
+}
+/* END: searchbar styles */
+
+/* START: search manufacturer styles */
+.search-manufacturer {
+	@apply flex max-sm:w-full flex-1 justify-start items-center;
+}
+
+.search-manufacturer__input {
+	@apply bg-light-white rounded-l-full cursor-pointer max-sm:rounded-full outline-none h-[48px] text-sm w-full p-4 pl-12;
+}
+
+.search-manufacturer__options {
+	@apply bg-white rounded-md shadow-lg ring-black mt-1 text-base w-full max-h-60 py-1 ring-1 ring-opacity-5 absolute overflow-auto sm:text-sm focus:outline-none;
+}
+
+.search-manufacturer__option {
+	@apply cursor-default py-2 pr-4 pl-10 select-none;
+}
+/* END: search manufacturer styles */
